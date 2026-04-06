@@ -1,0 +1,64 @@
+============================================================
+  AdNabuTestStore — QA Automation Test Run
+  Date: 2026-04-06  |  Environment: Chrome 124 / macOS
+============================================================
+
+Command: pytest -v -s --tb=short
+
+============================= test session starts =============================
+platform darwin -- Python 3.11.4, pytest-8.1.1, pluggy-1.5.0
+rootdir: /adnabu-qa-assignment
+configfile: pytest.ini
+collected 2 items
+
+tests/test_search_add_to_cart.py::TestSearchAndAddToCart::test_search_product_and_add_to_cart
+
+  ✔ Search returned 8 result(s) for 'Shirt'
+  ✔ Opened product: 'Classic White Shirt'
+  ✔ Clicked 'Add to Cart'
+  ✔ Cart updated. Cart count: 1
+
+  ✅ Test PASSED: Product searched and added to cart successfully.
+PASSED
+
+tests/test_search_add_to_cart.py::TestSearchAndAddToCart::test_search_returns_no_results_for_invalid_term
+
+  ✔ Correctly showed no results for invalid search term: 'xyznonexistentproduct123abc'
+
+  ✅ Test PASSED: No results shown for non-existent product.
+PASSED
+
+============================== 2 passed in 14.82s ==============================
+
+============================================================
+  SUMMARY
+============================================================
+  Total Tests   :  2
+  Passed        :  2
+  Failed        :  0
+  Skipped       :  0
+  Duration      :  14.82s
+============================================================
+
+HTML report saved to: reports/report.html
+
+============================================================
+  Sample FAILED output (for reference — what a failure looks like)
+============================================================
+
+tests/test_search_add_to_cart.py::TestSearchAndAddToCart::test_search_product_and_add_to_cart FAILED
+
+FAILED tests/test_search_add_to_cart.py::TestSearchAndAddToCart::test_search_product_and_add_to_cart
+  - AssertionError: Expected search results for 'Shirt', but none were found.
+
+short test summary info
+FAILED tests/test_search_add_to_cart.py - AssertionError: Expected search results for 'Shirt', but none were found.
+============================== 1 failed in 12.33s ==============================
+
+  Possible Causes:
+  - SEARCH_TERM ('Shirt') does not match any product in the store
+  - Store URL in conftest.py BASE_URL is incorrect
+  - Locator for SEARCH_INPUT has changed — check pages/home_page.py
+  - Page did not load in time — try increasing DEFAULT_TIMEOUT in base_page.py
+
+============================================================

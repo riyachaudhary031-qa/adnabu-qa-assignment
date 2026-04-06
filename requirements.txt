@@ -1,0 +1,17 @@
+# -------------------------------------------------------
+# requirements.txt — AdNabuTestStore QA Automation
+# -------------------------------------------------------
+# Install all dependencies with:
+#   pip install -r requirements.txt
+
+# Core testing framework
+pytest==8.1.1
+
+# Selenium WebDriver (browser automation)
+selenium==4.20.0
+
+# Auto-downloads the correct ChromeDriver version — no manual setup needed
+webdriver-manager==4.0.1
+
+# Generates a clean HTML test report (optional but recommended)
+pytest-html==4.1.1
